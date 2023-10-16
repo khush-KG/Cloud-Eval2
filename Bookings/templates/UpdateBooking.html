@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Booking</title>
+</head>
+<style>
+    body {
+        background-color: #7A4495;
+    }
+
+    h1 {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #first {
+        padding-left: 40px;
+        padding-right: 40px;
+        border: 10px solid;
+        border-color: #FF8FB1;
+        margin-left: 40px;
+        margin-right: 40px;
+        border-radius: 20px;
+        background-color: #FCE2DB;
+    }
+
+    #second {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    form {
+        margin-left: 15%;
+        font-size: large;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+</style>
+
+<body>
+    <div id="first">
+        <div id="second">
+            <h1 style="text-align: center;color: #B9005B;font-family:'Courier New', Courier, monospace">Update Booking
+            </h1>
+            <form action="saveUpdate/{{ myTables.BookingID }}" method="post">
+                {% csrf_token %}
+                Date and Time :
+                <input type="datetime-local" name="DineDateTime" value="{{ myTables.BookDateTime  }}">
+                <br><br>
+                Duration :
+                <select name="DineDuration" value="{{ myTables.BookDuration }}">
+                    <option value="2 hours">2 Hours</option>
+                    <option value="3 hours">3 Hours</option>
+                    <option value="4 hours">4 Hours</option>
+                </select>
+                <br><br>
+                Name:
+                <input type="text" name="DinerName" value="{{ myTables.DinerName }}">
+                <br><br>
+                Age:
+                <input type="number" name="DinerAge" value="{{ myTables.DinerAge }}">
+                <br><br>
+                Gender:
+                <input type="radio" name="DinerGender" value="Male">Male
+                <input type="radio" name="DinerGender" value="Female">female
+                <input type="radio" name="DinerGender" value="Others">Others
+                <input type="radio" name="DinerGender" value="Rather not say">Rather not say
+                <br><br>
+                Email:
+                <input type="email" name="DinerEmail" placeholder="abc@xyz.com" value="{{ myTables.DinerEmail }}">
+                <br><br>
+                Phone number:
+                <input type="number" name="DinerPhone_num" value="{{ myTables.DinerPhone_num }}">
+                <br><br>
+                Address: <br>
+                <textarea name="DinerAddress" id="" cols="30" rows="10"
+                    placeholder="House no., opposite to, road/street name, City - PIN"
+                    value="{{ myTables.DinerAddress }}"></textarea>
+                <br><br>
+                No. of Guests:
+                <input type="number" name="Guests_num" value="{{ myTables.Guests_num }}">
+                <br><br>
+                Guest List : <br>
+                <textarea name="Guest_list" id="" cols="30" rows="10" placeholder="Name - Phone number"
+                    value="{{ myTables.Guest_list }}"></textarea>
+                <br><br>
+                <input type="submit" value="Update" style="margin-left:40%; margin-bottom: 30px;">
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
