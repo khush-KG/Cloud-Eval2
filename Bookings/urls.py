@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 # "/" are put at the end of url name not in front
@@ -19,4 +21,5 @@ urlpatterns = [
     path('updateBooking/saveUpdate/<int:BookingID>',views.saveUpdate, name='saveUpdate'),
     path('bookTable/TableRecords/updateBooking/saveUpdate/<int:BookingID>',views.saveUpdate, name='saveUpdate'),
     path('TableRecords/updateBooking/saveUpdate/<int:BookingID>',views.saveUpdate, name='saveUpdate'),
-]
+ ]
+# + STATIC_URL(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
